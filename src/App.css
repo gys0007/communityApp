@@ -9,8 +9,20 @@
   font-family: 'DungGeunMo';
   margin: 0;
   padding: 0;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
-p.typing-txt{
-  display:none;
+.text-center{
+  text-align: center;
 }
+
+.text-right{
+  text-align: right;
+}
+
+.d-none{
+  display: none;
+}
+
+

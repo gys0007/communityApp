@@ -3,8 +3,19 @@
     height: 100vh;
     background-color: rgb(0, 0, 126);
 
-    p{
-        font-size: 1.5rem;
-        color: #fff;
+    .login_wrapper{
+        input{
+            background-color: transparent;
+            border: none;
+            margin-left: 2rem;
+        }
+    }
+
+    .newUserGuide{
+        width: 47rem;
+        margin: 0 auto;
+        #asd{
+            margin-left:4.5 rem;
+        }
     }
 }

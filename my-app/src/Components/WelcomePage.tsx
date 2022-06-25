@@ -1,26 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import './WelcomePage.scss';
+import styled, { keyframes } from 'styled-components';
+import '../style/WelcomePage.scss';
 
-const WelcomePage = () => {
+interface TextProps{
+    time: number;
+}
+
+export const Text = styled.p<TextProps>`
+    animation-name: text;
+    animation-delay: ${(props.time)}s;
+`
+
+const textAnimation = keyframes`
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+`
+
+const WelcomePage:FC = () => {
     
     const [id, setId] = useState('');
 
-    const changeId = (event)=>{
-        setId(event.target.value);
-    }
-
-    const appKeyPress = (event) => {
-        if(event.key === "Enter"){
-
-        }
-    }
-
     return(
         <div className="WelcomePage">
-            <p className="typing-txt">PROTOCOL : LAP-M</p>
-            <p className="typing-txt">COMPRESSION : V.42BIS</p>
-            <p className="typing-txt">CONNECT 19200/ARQ\n</p>
+            <Text time={1}>COMPRESSION : V.42BIS</Text>
+            <Text time={1}>CONNECT 19200/ARQ\n</Text>
             <p className="typing-txt">trying : baekdu</p>
             <p className="typing-txt">Connecting using IP ... Connected session 1</p>
             <br/>
@@ -30,23 +38,23 @@ const WelcomePage = () => {
             <NewUserGuide/>
             <div className="login_wrapper">
                 <span className="typing-txt">나우 ID :</span>
-                <input type="text" value={id} onChange={changeId} onKeyPress={appKeyPress} />
+                <input type="text" value={id}  />
             </div>
             
         </div>
     )
 }
 
+
+
 const NewUserGuide = () => {
 
     const typeText = useRef();
 
-    console.log(typeText.current);
-
     return(
         <div className="newUserGuide">
-            <p className="text-center typing-txt" ref={typeText}>---------------------------------------------------</p>
-            <p className="text-center typing-txt" ref={typeText}>***&nbsp;'나', '우리', 그리고 '함께하는 세상'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</p>
+            <p className="text-center typing-txt" >---------------------------------------------------</p>
+            <p className="text-center typing-txt" >***&nbsp;'나', '우리', 그리고 '함께하는 세상'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</p>
             <p className="text-center typing-txt">***&nbsp;이제 나우누리가 여러분과 '나우'함께 합니다.&nbsp;***</p>
             <p className="text-center typing-txt">***&nbsp;'나우'는 조금 더 낫게'의 순 우리말 입니다.&nbsp;&nbsp;***</p>
             <p className="text-center typing-txt">---------------------------------------------------</p>
